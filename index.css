@@ -56,7 +56,7 @@ html, body {
     font-size: 33px;
 }
 .playRecord {
-    padding: 10px;
-    background: yellow;
-    font-size: 44px;
+    width: 464px;
+    height: 222px;
+    background-image: url('./images/listen.png');
 }

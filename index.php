@@ -137,7 +137,7 @@ function createNonceStr($length = 16) {
         <div class="recordStop"></div>
       </div>
       <div class="state">长按开始</div>
-      <div class="playRecord">试听录音</div>    
+      <div class="playRecord"></div>    
     </div>
 
     
@@ -194,6 +194,23 @@ function createNonceStr($length = 16) {
 
         });
 
+        
+        // 用localStorage进行记录，之前没有授权的话，先触发录音授权，避免影响后 续交互
+        // var localStorage = window.localStorage;
+        // if (!localStorage.allowRecord || localStorage.allowRecord !== 'true') {
+        //     // alert('授权');
+        //     wx.startRecord({
+        //         success: function() {
+        //             localStorage.allowRecord = 'true';
+        //             // 仅仅为了授权，所以立刻停掉
+        //             wx.stopRecord();
+        //         },
+        //         cancel: function() {
+        //             alert('用户拒绝授权录音');
+        //         }
+        //     });
+        // }
+
 
         var localId, START, END, luyintime;
         var record = document.getElementsByClassName('record')[0];
@@ -205,6 +222,7 @@ function createNonceStr($length = 16) {
           recordStop.style.display = 'block';
 
           state.innerText = '正在录制中...'
+          stopCountTime();
           startCountTime();
 
           wx.startRecord({
@@ -301,6 +319,7 @@ function createNonceStr($length = 16) {
           timeId = setInterval(function() {
                   if(seconds == 0){
                       clearInterval(timeId);
+                    //   return;
                   };                        
                   seconds --;
                   span.innerHTML = '录音倒计时:' + seconds;
