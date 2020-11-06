@@ -54,9 +54,10 @@ html, body {
 .state {
     color: #ffffff;
     font-size: 33px;
+    margin-top: -20px;
 }
 .playRecord {
-    padding: 10px;
-    background: yellow;
-    font-size: 44px;
+    width: 464px;
+    height: 222px;
+    background-image: url('./images/listen.png');
 }

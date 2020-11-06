@@ -137,7 +137,7 @@ function createNonceStr($length = 16) {
         <div class="recordStop"></div>
       </div>
       <div class="state">长按开始</div>
-      <div class="playRecord">试听录音</div>    
+      <div class="playRecord"></div>    
     </div>
 
     
