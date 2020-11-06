@@ -54,6 +54,7 @@ html, body {
 .state {
     color: #ffffff;
     font-size: 33px;
+    margin-top: -20px;
 }
 .playRecord {
     width: 464px;
