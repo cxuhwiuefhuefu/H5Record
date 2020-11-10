@@ -1,0 +1,106 @@
+* {
+    -webkit-touch-callout:none;
+    -webkit-user-select:none;
+    -khtml-user-select:none;
+    -moz-user-select:none;
+    -ms-user-select:none;
+    user-select:none;
+    margin: 0;
+    padding: 0;
+}
+a {
+    text-decoration: none;
+    color: #fff;
+}
+html, body {
+    width: 100%;
+    height: 100%;
+}
+body {
+    background: url('../images/bg.png') no-repeat center center;
+    background-size: 100% 100%;
+}
+.wrapper {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.top {
+    margin: 0 auto;
+    width: 75%;
+    height: 23%;
+    background: url('../images/title.png') no-repeat center center;
+    background-size: 100%;
+}
+.left {
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+    width: 90%;
+    height: 85%;
+    background: url(../images/container.png) no-repeat center;
+    background-size: cover;
+}
+
+.content {
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    right: 0px;
+    bottom: 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; 
+}
+.promptContent {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.prompt {
+    font-size: 37px;
+    color: #ffffff;
+    font-weight: bold;
+}
+.countdown {
+    font-size: 44px;
+    text-align: center;
+    color: #ffffff;
+}
+
+
+.btnContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.button {
+    width: 303.2px;
+    height: 86.4px;
+    background: url('../images/btn.png');
+    background-size: 100% 100%;
+    color: #ffffff;
+    letter-spacing: 1px;    
+    margin: 10px;
+    font-size: 35px;
+    text-align: center;
+    line-height:  86.4px;
+}
+
+.state {
+    width: 500px;
+    height: 75.6px; 
+    text-align: center;
+    line-height: 75.6px;
+    color: 859eff;
+    font-size: 32px;
+}
+
+.stopRecord {
+    display: none;
+}

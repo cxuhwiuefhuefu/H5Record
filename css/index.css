@@ -1,0 +1,135 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+html,
+body,
+.wrapper {
+    width: 100%;
+    height: 100%; 
+}
+body{
+    background: url('../images/bg.png') no-repeat;
+    background-size: cover;
+}
+
+.top {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    margin-top: 10px;
+    margin-left: 10px;
+    width: 60%;
+    height: 23%;
+    background: url('../images/title.png') no-repeat;
+    background-size: 100%;
+}
+
+.content {
+    margin: 0 auto;
+    width: 85%;
+    height: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+}
+.postcard {
+    width: 100%;
+    height: 100%;
+}
+
+.bottom {
+    position: relative;
+    margin-left: 10%;
+    margin-top: 10%;
+    width: 84%;
+    height: 38%;
+    background: url('../images/figure.png');
+    background-size: cover;
+}
+.bottomContent {
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    right: 0px;
+    bottom: 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center; 
+}
+.promptContent {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 112%;
+}
+.prompt {
+    font-size: 37px;
+    color: #ffffff;
+    font-weight: bold;
+}
+.countdown {
+    padding-left: 65px;
+    font-size: 44px;
+    text-align: center;
+    color: 859eff;
+}
+.btnContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.button {
+    width: 303.2px;
+    height: 86.4px;
+    background: url('../images/btn.png') no-repeat;
+    background-size: 100%;
+    color: #ffffff;
+    letter-spacing: 1px;    
+    margin: 10px;
+    font-size: 35px;
+    text-align: center;
+    line-height: 86.4px;
+}
+.shareTo {
+    font-size: 28px;
+}
+
+.state {
+    padding-left: 66px;
+    width: 500px;
+    height: 75.6px; 
+    text-align: left;
+    line-height: 75.6px;
+    color: 859eff;
+    font-size: 32px;
+}
+
+.stopRecord {
+    display: none;
+}
+
+
+/* 弹层 */
+.layer {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.3);
+    display: none;
+}
+.sharePhoto {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 600px;
+    height: 494px;
+}
+
+
