@@ -119,22 +119,19 @@ function createNonceStr($length = 16) {
                 ] 
         });
 
-        // 获取当前url参数的方法
-        function getQueryString(name) { 
-            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i"); 
-            var r = window.location.search.substr(1).match(reg); 
-            if (r != null){ return decodeURI(r[2])}//中文转码
-            return null; 
-        } 
+        function getQueryString(name) {
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+            var r = window.location.search.substr(1).match(reg);
+            if (r != null) return unescape(r[2]);
+            return null;
+        }
 
-        localId = getQueryString('localId');
+
+        serverId = getQueryString('serverId')
         wx.ready(function(){
             console.log('接口配置成功');
             var audio = document.getElementById("audioPlay");
  　　　　    audio.play();
-
-            localId = getQueryString('localId');
-            
         });
 
 
@@ -146,22 +143,29 @@ function createNonceStr($length = 16) {
         
         // 监听点击播放语音点击事件
         playRecord.addEventListener('click', function() {
-          if(localId) { // 判断是否录到音了
-            // 监听播放录音完毕
-            wx.onVoicePlayEnd({
+            wx.downloadVoice({
+                serverId: serverId, // 需要下载的音频的服务器端ID，由uploadVoice接口获得
+                isShowProgressTips: 1, // 默认为1，显示进度提示
                 success: function (res) {
-                    state.innerText = '录音播放完毕';
-                }
-            });
+                    localId = res.localId; // 返回音频的本地ID
+                    
+                    if(localId) { // 判断是否录到音了
+                        // 监听播放录音完毕
+                        wx.onVoicePlayEnd({
+                            success: function (res) {
+                                state.innerText = '录音播放完毕';
+                            }
+                        });
 
-            state.innerText = '播放录音中...';
-            wx.playVoice({
-                localId: localId // 需要播放的音频的本地ID，由stopRecord接口获得
-            });     
-          }else {
-            state.innerText = '请重新刷新一下';
-          }
-         
+                        state.innerText = '播放录音中...';
+                        wx.playVoice({
+                            localId: localId // 需要播放的音频的本地ID，由stopRecord接口获得
+                        });     
+                    }else {
+                        state.innerText = '请重新刷新一下';
+                    }
+                }
+            }); 
         })
 
     

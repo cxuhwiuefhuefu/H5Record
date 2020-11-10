@@ -156,6 +156,7 @@ function createNonceStr($length = 16) {
         var state = document.getElementsByClassName('state')[0];
         var share = document.getElementsByClassName('shareTo')[0];
         var layer = document.getElementsByClassName('layer')[0];
+        var serverId;
 
 
         layer.addEventListener('touchstart', function() { 
@@ -167,7 +168,7 @@ function createNonceStr($length = 16) {
             wx.updateAppMessageShareData({ 
                 title: '以声会面，以声传情', // 分享标题
                 desc: '', // 分享描述
-                link: `http://lh.22do.cn/H5Record/index2.php?localId=${localId}`, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                link: `http://lh.22do.cn/H5Record/index2.php?serverId=${serverId}`, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
                 imgUrl: 'http://lh.22do.cn/H5Record/images/cover.jpg', // 分享图标
                 success: function () {
                    
@@ -177,7 +178,7 @@ function createNonceStr($length = 16) {
             // 自定义“分享到朋友圈”及“分享到QQ空间”按钮的分享内容（1.4.0）
             wx.updateTimelineShareData({ 
                 title: '以声会面，以声传情', // 分享标题
-                link: `http://lh.22do.cn/H5Record/index2.php?localId=${localId}`, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                link: `http://lh.22do.cn/H5Record/index2.php?serverId=${serverId}`, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
                 imgUrl: 'http://lh.22do.cn/H5Record/images/cover.jpg', // 分享图标
                 success: function () {
 
@@ -253,7 +254,7 @@ function createNonceStr($length = 16) {
               isShowProgressTips: 1, // 默认为1，显示进度提示
               success: function (res) {
                   state.innerText = '录音上传完毕，点击可重新录音';
-                  var serverId = res.serverId; // 返回音频的服务器端ID
+                  serverId = res.serverId; // 返回音频的服务器端ID
               }
           })
         }
